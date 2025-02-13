@@ -10,11 +10,15 @@
     <a-scene embedded arjs>
       <!-- Definir el marcador -->
       <a-marker preset="hiro">
-        <!-- Añadir un cubo con animación de rebote y cambio de color -->
-        <a-box id="animated-box" position="0 0.5 0" material="color: red;"></a-box>
+        <!-- Añadir un cubo con animación de rebote, cambio de color y sonido -->
+        <a-box id="animated-box" position="0 0.5 0" material="color: red;" sound="src: #bounce-sound; autoplay: false;"></a-box>
       </a-marker>
+      
       <!-- Cámara controlada por AR.js -->
       <a-entity camera></a-entity>
+      
+      <!-- Definir el sonido -->
+      <audio id="bounce-sound" src="https://www.fesliyanstudios.com/play-mp3/4383"></audio>
     </a-scene>
 
     <script>
@@ -25,6 +29,7 @@
           let index = 0;
           let direction = 1;
           let positionY = 0.5;
+          let sound = document.querySelector("#bounce-sound");
 
           function animate() {
             positionY += 0.02 * direction;
@@ -32,6 +37,8 @@
               direction *= -1;
               index = (index + 1) % colors.length;
               el.setAttribute("material", "color", colors[index]);
+              sound.currentTime = 0; // Reinicia el sonido
+              sound.play(); // Reproduce el sonido
             }
             el.setAttribute("position", `0 ${positionY} 0`);
             requestAnimationFrame(animate);
@@ -43,4 +50,4 @@
       document.querySelector("#animated-box").setAttribute("bounce-and-color", "");
     </script>
   </body>
-</html>ñ
+</html>
