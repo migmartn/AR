@@ -1,46 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- Incluir A-Frame -->
-    <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
-    <!-- Incluir AR.js para A-Frame -->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
   </head>
   <body style="margin: 0; overflow: hidden;">
     <a-scene embedded arjs>
+      <!-- Cargar el modelo GLTF -->
+      <a-assets>
+        <a-asset-item id="modelo" src="tinker.gltf"></a-asset-item>
+      </a-assets>
+
       <!-- Definir el marcador -->
       <a-marker preset="hiro">
-        <!-- Añadir un cubo con animación de rebote y cambio de color -->
-        <a-box id="animated-box" position="0 0.5 0" material="color: red;"></a-box>
+        <a-entity gltf-model="#modelo" position="0 0 0" scale="0.5 0.5 0.5"></a-entity>
       </a-marker>
-      <!-- Cámara controlada por AR.js -->
+
+      <!-- Cámara AR.js -->
       <a-entity camera></a-entity>
     </a-scene>
-
-    <script>
-      AFRAME.registerComponent("bounce-and-color", {
-        init: function () {
-          let el = this.el;
-          let colors = ["red", "blue", "green", "yellow", "purple", "orange"];
-          let index = 0;
-          let direction = 1;
-          let positionY = 0.5;
-
-          function animate() {
-            positionY += 0.02 * direction;
-            if (positionY >= 1 || positionY <= 0.5) {
-              direction *= -1;
-              index = (index + 1) % colors.length;
-              el.setAttribute("material", "color", colors[index]);
-            }
-            el.setAttribute("position", `0 ${positionY} 0`);
-            requestAnimationFrame(animate);
-          }
-          animate();
-        },
-      });
-
-      document.querySelector("#animated-box").setAttribute("bounce-and-color", "");
-    </script>
   </body>
 </html>
