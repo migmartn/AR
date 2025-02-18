@@ -1,16 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR Rocket 🚀</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <style>
+      body { margin: 0; overflow: hidden; }
+    </style>
   </head>
   <body>
     <a-scene embedded arjs>
-  <a-entity scale=" .2 .2 2">
-    <a-entity gltf-model="rocket.glb" scale="10 10 10" crossOrigin="anonymus">
-      </a-entity>
-    <a-marker-camera prest="hiro></a-marker-camera>
+      <!-- Marcador Hiro -->
+      <a-marker preset="hiro">
+        <!-- Modelo 3D (Asegúrate de que la ruta sea correcta) -->
+        <a-entity gltf-model="rocket.glb" scale="10 10 10" crossOrigin="anonymous"></a-entity>
+      </a-marker>
+
+      <!-- Cámara para AR -->
+      <a-entity camera></a-entity>
     </a-scene>
   </body>
 </html>
-
