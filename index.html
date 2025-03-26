@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR con A-Frame</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  </head>
+  <body>
+    <a-scene embedded arjs>
+      <!-- Marcador Hiro -->
+      <a-marker preset="hiro">
+        <!-- Modelo del pato -->
+        <a-entity id="animated-pato" 
+                  gltf-model="https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/main/2.0/Duck/glTF/Duck.gltf"
+                  scale="0.1 0.1 0.1" 
+                  position="0 0.5 0"
+                  crossOrigin="anonymous"></a-entity>
+      </a-marker>
+      <!-- Cámara AR -->
+      <a-entity camera id="camera"></a-entity>
+    </a-scene>
+
+    <!-- Botones -->
+    <div id="buttons">
+      <button onclick="toggleBounce()">Rebotar</button>
+      <button onclick="playDuckSound()">Sonido</button>
+      <button onclick="zoomIn()">Acercar</button>
+      <button onclick="zoomOut()">Alejar</button>
+    </div>
+
+    <!-- Sonido del pato (ubicado en la misma carpeta) -->
+    <audio id="duck-sound">
+      <source src="duck.mp3" type="audio/mp3">
+    </audio>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
