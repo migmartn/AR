@@ -1,3 +1,4 @@
+/* Botones principales */
 #buttons {
   position: absolute;
   bottom: 20px;
@@ -24,6 +25,44 @@ button:hover {
 }
 
 button:active {
+  background-color: #0056b3;
+  color: white;
+}
+
+/* Botones de movimiento */
+#movement-buttons {
+  position: absolute;
+  bottom: 100px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#movement-buttons .row {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+#movement-buttons button {
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  border: 2px solid #000000;
+  border-radius: 15px;
+  background-color: #f0f0f0;
+  color: #000000;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#movement-buttons button:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+#movement-buttons button:active {
   background-color: #0056b3;
   color: white;
 }
