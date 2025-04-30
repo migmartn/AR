@@ -11,19 +11,17 @@
     <a-scene embedded arjs>
       <!-- Marcador Hiro -->
       <a-marker preset="hiro">
-        <!-- Modelo del pato con animación de rebote y cambio de color -->
-        <a-entity id="animated-pato" 
+        <!-- Modelo del pato -->
+        <a-entity id="animated-pato"
                   gltf-model="https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/main/2.0/Duck/glTF/Duck.gltf"
-                  scale="0.1 0.1 0.1" 
+                  scale="0.1 0.1 0.1"
                   position="0 0.5 0"
-                  crossOrigin="anonymous"
-                  bounce-and-color></a-entity>
+                  crossOrigin="anonymous"></a-entity>
       </a-marker>
-      <!-- Cámara AR con ajustes para dispositivos móviles -->
       <a-entity camera></a-entity>
     </a-scene>
 
-    <!-- Botones -->
+    <!-- Botones principales -->
     <div id="buttons">
       <button onclick="toggleBounce()">Rebotar</button>
       <button onclick="playDuckSound()">Sonido</button>
@@ -31,7 +29,21 @@
       <button onclick="zoomOut()">Alejar</button>
     </div>
 
-    <!-- Sonido del pato (ubicado en la misma carpeta) -->
+    <!-- Botones de movimiento -->
+    <div id="movement-buttons">
+      <div class="row">
+        <button onclick="movePato('up')">⬆️</button>
+      </div>
+      <div class="row">
+        <button onclick="movePato('left')">⬅️</button>
+        <button onclick="movePato('right')">➡️</button>
+      </div>
+      <div class="row">
+        <button onclick="movePato('down')">⬇️</button>
+      </div>
+    </div>
+
+    <!-- Sonido -->
     <audio id="duck-sound">
       <source src="duck.mp3" type="audio/mp3">
     </audio>
