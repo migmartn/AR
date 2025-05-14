@@ -1,4 +1,4 @@
-/* Botones principales */
+/* Contenedor de botones principales */
 #buttons {
   position: absolute;
   bottom: 20px;
@@ -8,6 +8,7 @@
   gap: 10px;
 }
 
+/* Estilo de los botones */
 button {
   padding: 15px;
   font-size: 16px;
@@ -29,7 +30,7 @@ button:active {
   color: white;
 }
 
-/* Botones de movimiento */
+/* Contenedor de botones de movimiento */
 #movement-buttons {
   position: absolute;
   bottom: 100px;
